@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Tier App</title>
+</head>
+<body>
+    <h1>Welcome to the Multi-Tier Application</h1>
+    <p>Click the button to fetch a message from the API:</p>
+    <button onclick="fetchMessage()">Get Message</button>
+    <p id="message"></p>
+
+    <script>
+        function fetchMessage() {
+            fetch('http://localhost:5000/api/message')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('message').innerText = data.message;
+                });
+        }
+    </script>
+</body>
+</html>
